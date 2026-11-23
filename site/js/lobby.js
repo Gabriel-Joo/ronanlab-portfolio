@@ -322,7 +322,7 @@ export function buildLobby(renderer, projects, sign) {
     shade.rotation.y = Math.PI / 2;
     g.add(shade);
     g.add(box(1.15, 0.02, 0.05, lit(6, 4.6, 2.8), 0, top + 0.17, 0.57));
-    const spot = new THREE.SpotLight(0xffe2b4, 42, 8, 0.62, 0.8, 2);
+    const spot = new THREE.SpotLight(0xffe2b4, 20, 8, 0.62, 0.8, 2); // 액자 조명 세기(둘째 값). 2026-11-24 42 에서 낮춤
     spot.position.set(0, top + 0.25, 0.75);
     spot.target.position.set(0, -0.35, 0.05);
     g.add(spot, spot.target);

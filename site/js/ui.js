@@ -113,10 +113,24 @@ export function initUI({ onModalChange } = {}) {
       body.append(grid);
     } else if (kind === 'about') {
       $('sheet-title').textContent = ABOUT.title;
-      paragraphs(body, ABOUT.body);
+      body.append(el('h3', 'sheet-h', ABOUT.selfTitle));
+      const self = el('div', 'prose');
+      paragraphs(self, ABOUT.body);
+      body.append(self, el('h3', 'sheet-h', ABOUT.projectsTitle));
+      const list = el('div', 'plist');
+      for (const id of ABOUT.projectOrder) {
+        const i = PROJECTS.findIndex((p) => p.id === id);
+        if (i < 0) continue;
+        const b = el('button', 'prow');
+        b.type = 'button';
+        b.append(el('strong', null, PROJECTS[i].title), el('span', null, PROJECTS[i].tagline), el('em', null, '열기'));
+        b.addEventListener('click', () => openProject(i));
+        list.append(b);
+      }
+      body.append(list);
     } else {
       $('sheet-title').textContent = CONTACT.title;
-      paragraphs(body, CONTACT.body);
+      if (CONTACT.body.length) paragraphs(body, CONTACT.body);
       if (CONTACT.items.length) {
         const dl = el('dl', 'contact');
         for (const [name, text, href] of CONTACT.items) {
