@@ -1,0 +1,5 @@
+# 포스터 빌드가 내려받는 글씨체와 파이썬 꾸러미(지워도 다시 받는다)
+tools/posters/.cache/
+__pycache__/
+*.pyc
+.DS_Store
