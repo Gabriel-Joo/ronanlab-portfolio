@@ -102,36 +102,20 @@ export function initUI({ onModalChange } = {}) {
     changed();
   }
 
-  function openSheet(kind, section) {
+  function openSheet(kind) {
     const body = $('sheet-body');
     body.replaceChildren();
     sheetKind = kind;
     if (kind === 'projects') {
-      $('sheet-title').textContent = '프로젝트';
+      $('sheet-title').textContent = '프로젝트 소개';
       const grid = el('div', 'cards');
       cards(grid, openProject);
       body.append(grid);
     } else if (kind === 'about') {
       $('sheet-title').textContent = ABOUT.title;
-      const hSelf = el('h3', 'sheet-h', ABOUT.selfTitle);
-      hSelf.id = 'about-self';
-      body.append(hSelf);
       const self = el('div', 'prose');
       paragraphs(self, ABOUT.body);
-      const hProj = el('h3', 'sheet-h', ABOUT.projectsTitle);
-      hProj.id = 'about-projects';
-      body.append(self, hProj);
-      const list = el('div', 'plist');
-      for (const id of ABOUT.projectOrder) {
-        const i = PROJECTS.findIndex((p) => p.id === id);
-        if (i < 0) continue;
-        const b = el('button', 'prow');
-        b.type = 'button';
-        b.append(el('strong', null, PROJECTS[i].title), el('span', null, PROJECTS[i].tagline), el('em', null, '열기'));
-        b.addEventListener('click', () => openProject(i));
-        list.append(b);
-      }
-      body.append(list);
+      body.append(self);
     } else {
       $('sheet-title').textContent = CONTACT.title;
       if (CONTACT.body.length) paragraphs(body, CONTACT.body);
@@ -151,10 +135,7 @@ export function initUI({ onModalChange } = {}) {
     }
     if (win.open) win.close();
     if (!sheet.open) sheet.showModal();
-    // 메뉴에서 고른 자리로 간다
-    const target = section && document.getElementById(`about-${section}`);
-    if (target) body.scrollTop = target.offsetTop - body.offsetTop - 4;
-    else body.scrollTop = 0;
+    body.scrollTop = 0;
     changed();
   }
 
@@ -165,7 +146,7 @@ export function initUI({ onModalChange } = {}) {
         $('listview').scrollIntoView({ behavior: 'smooth' });
         return;
       }
-      openSheet(b.dataset.open, b.dataset.section);
+      openSheet(b.dataset.open);
     });
   });
   for (const d of [sheet, win]) {

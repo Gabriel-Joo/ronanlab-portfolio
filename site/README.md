@@ -33,7 +33,7 @@ python3 -m http.server
   포스터에 가까이 가서 마우스를 올리면 손가락 모양으로 바뀌고, 누르면 창이 열립니다. Enter 나 E 로도 열립니다.
 - 휴대폰: 왼쪽 조이스틱으로 걷기, 오른쪽 조이스틱(또는 화면 끌기)으로 둘러보기.
   포스터 앞에 서면 「열기」 단추가 뜹니다. 포스터를 직접 눌러도 됩니다.
-- 맨 위 메뉴(프로젝트, 소개, 연락처)는 어느 화면에서나 눌립니다.
+- 맨 위 메뉴(프로젝트 소개, 자기소개, 연락처)는 어느 화면에서나 눌립니다. 「프로젝트 소개」는 포스터 카드 목록을 엽니다.
 
 ## 나중에 넣을 것: 어디를 고치나
 
@@ -42,7 +42,7 @@ python3 -m http.server
 | 포스터 그림 넷 | `posters/` 에 파일을 넣습니다. 이름은 `posters/README.md` 에 있습니다. 코드는 건드리지 않습니다 |
 | 프로젝트 창 안의 글 | `js/config.js` 의 `PROJECTS` 에서 그 프로젝트의 `tagline`(한 줄), `body`(문단 배열) |
 | 창의 단추 넷 주소 | `js/config.js` 의 `PROJECTS` 에서 `links` 의 `portfolio`, `docs`, `github`, `site`. 비워 두면 꺼진 단추로 보입니다 |
-| 소개, 연락처 | `js/config.js` 의 `ABOUT`, `CONTACT` |
+| 자기소개, 연락처 | `js/config.js` 의 `ABOUT`, `CONTACT` |
 | 안내 문구, 알림 문구 | `js/config.js` 의 `TEXT` |
 | 입간판과 네온 글 | `js/config.js` 의 `SIGN`. 입간판의 프로젝트 이름 넷은 `PROJECTS` 의 `title` 을 그대로 씁니다 |
 | 프로젝트 차례, 이름 | `js/config.js` 의 `PROJECTS` 배열 순서와 `title`. 벽 왼쪽부터 이 순서로 걸립니다 |
