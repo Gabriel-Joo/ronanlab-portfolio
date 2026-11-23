@@ -7,7 +7,7 @@
 // body    : 창 안의 글. 문단마다 문자열 하나. 비워 두면 "내용은 곧 채웁니다." 문구가 나옵니다.
 // links   : 창의 단추. 주소를 넣은 것만 단추로 나옵니다. 없는 단추(예: 사이트가 없는 프로젝트)는 줄을 빼면 됩니다.
 //
-// 노션 주소는 FOREMAN 의 config/notion.toml 에 적힌 페이지 id(docs_page, portfolio_page)로 만든 것입니다.
+// 노션 주소는 웹에 게시된 공개 주소(notion.site)입니다. notion.so 꼴은 로그인한 사람만 열립니다.
 // GitHub 주소는 각 저장소의 origin 입니다.
 export const PROJECTS = [
   {
@@ -21,8 +21,8 @@ export const PROJECTS = [
       '바깥 요청은 Cloudflare 터널로만 들어오고, 언어 모델 추론은 클러스터 밖 호스트의 GPU 가 맡습니다.',
     ],
     links: {
-      docs: 'https://www.notion.so/4153218bb52480069acbdd52063fe2c5',
-      portfolio: 'https://www.notion.so/4153218bb52480d39869e736a15b4b8f',
+      docs: 'https://odd-leather-401.notion.site/4153218bb52480069acbdd52063fe2c5',
+      portfolio: 'https://odd-leather-401.notion.site/4153218bb52480d39869e736a15b4b8f',
       github: 'https://github.com/Gabriel-Joo/ronanlab-infra',
     },
   },
@@ -37,8 +37,8 @@ export const PROJECTS = [
       '세션은 tmux 안에서 돌고, 작업은 git worktree 로 갈라 서로의 파일을 건드리지 않게 했습니다.',
     ],
     links: {
-      docs: 'https://www.notion.so/40f3218bb52480ec8033dd26aedd17d5',
-      portfolio: 'https://www.notion.so/4133218bb524816b832acf6a07f583c7',
+      docs: 'https://odd-leather-401.notion.site/40f3218bb52480ec8033dd26aedd17d5',
+      portfolio: 'https://odd-leather-401.notion.site/4133218bb524816b832acf6a07f583c7',
       github: 'https://github.com/Gabriel-Joo/foreman',
     },
   },
@@ -53,8 +53,8 @@ export const PROJECTS = [
       '보험금 계산처럼 규칙으로 정해지는 답은 모델에 맡기지 않고 코드가 냅니다. 언어 모델과 데이터는 모두 사내 서버에 둡니다.',
     ],
     links: {
-      docs: 'https://www.notion.so/3ea3218bb5248091aa0bc1eb58ae9ccb',
-      portfolio: 'https://www.notion.so/4133218bb5248142883af1f21788f6ca',
+      docs: 'https://odd-leather-401.notion.site/3ea3218bb5248091aa0bc1eb58ae9ccb',
+      portfolio: 'https://odd-leather-401.notion.site/4133218bb5248142883af1f21788f6ca',
       site: 'https://petmint.ronanlab.dev',
       github: 'https://github.com/Gabriel-Joo/petmint-rag-chatbot',
     },
@@ -70,9 +70,9 @@ export const PROJECTS = [
       '신발끼리 나란히 비교하거나 추천을 받을 수 있고, 리뷰와 용어를 찾아 답하는 챗봇에게 물어볼 수도 있습니다.',
     ],
     links: {
-      docs: 'https://www.notion.so/3e33218bb52480ffa796c8a04d324a06',
-      portfolio: 'https://www.notion.so/4133218bb52481dc803ce2938c011be0',
-      site: 'https://runshoes.ronanlab.dev',
+      docs: 'https://odd-leather-401.notion.site/3e33218bb52480ffa796c8a04d324a06',
+      portfolio: 'https://odd-leather-401.notion.site/4133218bb52481dc803ce2938c011be0',
+      site: 'https://runshoes.ronanlab.dev/login',
       github: 'https://github.com/Gabriel-Joo/runshoes',
     },
   },
