@@ -808,6 +808,7 @@ export function buildLobby(renderer, projects, sign) {
     const wx = W / 2;
     // 자판기: 유리창 안에 줄 맞춰 선 물건, 아래 꺼내는 칸, 옆에 동전과 지폐 넣는 자리, 위에 빛나는 간판.
     // 앞면이 +z 를 보게 지은 다음 통째로 돌려 벽에 붙인다.
+    const VEND = 1.3; // 자판기 크기 배율(1 이면 폭 1m, 높이 1.95m)
     const machine = (z, title, body, palette, kind) => {
       const g = new THREE.Group();
       const mBody = new THREE.MeshStandardMaterial({ color: body, roughness: 0.42, metalness: 0.35 });
@@ -980,20 +981,21 @@ export function buildLobby(renderer, projects, sign) {
       g.add(box(0.72, 0.26, 0.02, mTrim, -0.1, 0.32, 0.405));
       g.add(box(0.62, 0.17, 0.014, new THREE.MeshStandardMaterial({ color: 0x2a2d33, roughness: 0.25, metalness: 0.6 }), -0.1, 0.31, 0.418));
       g.add(box(0.3, 0.02, 0.02, mBrass, -0.1, 0.42, 0.425));
-      g.position.set(wx - 0.42, 0, z);
+      g.scale.setScalar(VEND);
+      g.position.set(wx - 0.42 * VEND, 0, z);
       g.rotation.y = -Math.PI / 2;
       scene.add(g);
-      block(wx - 0.42, z, 0.44, 0.52);
-      shadow(wx - 0.75, z, 1.2, 1.3, 0.6);
+      block(wx - 0.42 * VEND, z, 0.44 * VEND, 0.52 * VEND);
+      shadow(wx - 0.75 * VEND, z, 1.2 * VEND, 1.3 * VEND, 0.6);
     };
-    machine(2.25, 'DRINKS', '#8e1017', ['#d7262f', '#1f4fa8', '#2e9e55', '#f2c230', '#f2f0ea', '#e8842c'], 'cans');
-    machine(3.35, 'SNACKS', '#173a63', ['#e8842c', '#f2c230', '#b8402f', '#7a4ea8', '#3aa0a8', '#d94f7a'], 'bags');
+    machine(2.1, 'DRINKS', '#8e1017', ['#d7262f', '#1f4fa8', '#2e9e55', '#f2c230', '#f2f0ea', '#e8842c'], 'cans');
+    machine(3.55, 'SNACKS', '#173a63', ['#e8842c', '#f2c230', '#b8402f', '#7a4ea8', '#3aa0a8', '#d94f7a'], 'bags');
     // 쓰레기통
-    scene.add(mesh(new THREE.CylinderGeometry(0.2, 0.18, 0.72, 20), mBlack, wx - 0.45, 0.36, 4.35));
-    scene.add(mesh(new THREE.CylinderGeometry(0.21, 0.21, 0.04, 20), mBrass, wx - 0.45, 0.74, 4.35));
-    scene.add(mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.02, 20), mDark, wx - 0.45, 0.762, 4.35));
-    block(wx - 0.45, 4.35, 0.22, 0.22);
-    shadow(wx - 0.45, 4.35, 0.8, 0.8, 0.6);
+    scene.add(mesh(new THREE.CylinderGeometry(0.2, 0.18, 0.72, 20), mBlack, wx - 0.45, 0.36, 4.65));
+    scene.add(mesh(new THREE.CylinderGeometry(0.21, 0.21, 0.04, 20), mBrass, wx - 0.45, 0.74, 4.65));
+    scene.add(mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.02, 20), mDark, wx - 0.45, 0.762, 4.65));
+    block(wx - 0.45, 4.65, 0.22, 0.22);
+    shadow(wx - 0.45, 4.65, 0.8, 0.8, 0.6);
   }
 
   // ---------- 화장실 (왼쪽 벽, 문 쪽): 문 위 간판, 왼쪽 문 남자, 오른쪽 문 여자 ----------
